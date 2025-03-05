@@ -4,7 +4,6 @@ import hello.core.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
-import hello.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +28,14 @@ public class OrderServiceTest {
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+    }
 
+    @Test
+    void fieldInjectionTest(){
+        //OrderServiceImpl orderService1 = new OrderServiceImpl();
+        //필드주입은 여기서 memberRepository 에 원하는 구현인스턴스를 넣어줄 수가 없음
+        //할려면 따로 setMemberRepository() 만들어서 처리해야됨
+        //즉 수정자 주입이 함께 쓰여야 하는 형태가 됨
+        //테스트 힘듬
     }
 }

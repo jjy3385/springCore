@@ -7,6 +7,7 @@ import hello.core.member.MemoryMemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +45,7 @@ public class ApplicationContextSameBeanFindTest {
         assertThat(beansOfType.size()).isEqualTo(2);
     }
 
-    @Configuration
+    @TestConfiguration
     static class SameBeanConfig{
         @Bean
         public MemberRepository memberRepository1(){
